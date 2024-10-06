@@ -2,7 +2,7 @@ import "./App.css";
 import { Box } from "@mui/material";
 import CountryCard from "./Components/CountryCard";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState,useRef } from "react";
 
 function App() {
   const [list, setList] = useState([]);
@@ -19,14 +19,19 @@ function App() {
       setList([]);
     }
   };
-
+  const debounceRef = useRef(null); 
   const proccessfilter = (search, debouncetime) => {
-    // console.log(search);
-    // clear
+   
+   
+    if(debounceRef.current){
+      clearTimeout(debounceRef.current)
+    }
+    debounceRef.current = setTimeout(()=>{
     const filter = originallist.filter((item) =>
       item.name.common.toLowerCase().includes(search.toLowerCase())
     );
     setList(filter);
+   },debouncetime);
   };
 
   useEffect(() => {
@@ -53,7 +58,7 @@ function App() {
             gap: "16px",
           }}
         >
-          <CountryCard className="countryCard`" countryData={list} />
+          <CountryCard className="countryCard" countryData={list} />
         </Box>
       ) : null}
     </div>
