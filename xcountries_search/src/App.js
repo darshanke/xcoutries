@@ -77,36 +77,36 @@ import { useEffect, useState, useRef } from "react";
 
 function App() {
   const [list, setList] = useState([]);
-  const [originalList, setOriginalList] = useState([]); // Corrected naming for clarity
+  const [originalList, setOriginalList] = useState([]); 
   const [search, setSearch] = useState("");
 
   const fetchData = async () => {
     try {
       const res = await axios.get(`https://restcountries.com/v3.1/all`);
-      setOriginalList(res.data); // Store original data
-      setList(res.data); // Set the list to the original data initially
+      setOriginalList(res.data); 
+      setList(res.data); 
     } catch (e) {
       console.error("Error fetching data:", e.message);
-      setList([]); // Clear list on error
+      setList([]); 
     }
   };
 
   const debounceRef = useRef(null);
   
   const processFilter = (value, debounceTime) => {
-    if (debounceRef.current) {
-      clearTimeout(debounceRef.current);
-    }
-    debounceRef.current = setTimeout(() => {
+    // if (debounceRef.current) {
+    //   clearTimeout(debounceRef.current);
+    // }
+    // debounceRef.current = setTimeout(() => {
       const filter = originalList.filter((item) =>
         item.name.common.toLowerCase().includes(value.toLowerCase())
       );
       setList(filter);
-    }, debounceTime);
+    // }, debounceTime);
   };
 
   useEffect(() => {
-    fetchData(); // Fetch country data on mount
+    fetchData(); 
   }, []);
 
   useEffect(() => {
@@ -119,9 +119,9 @@ function App() {
         type="text"
         placeholder="Search for countries"
         style={{ width: "40%", margin: "1rem" }}
-        onChange={(e) => setSearch(e.target.value)} // Update search state
+        onChange={(e) => setSearch(e.target.value)} 
       />
-      {list.length > 0 ? ( // Check if there are countries to display
+      {list.length > 0 ? ( 
         <Box
           sx={{
             display: "flex",
@@ -130,10 +130,10 @@ function App() {
             gap: "16px",
           }}
         >
-          <CountryCard countryData={list} /> {/* Pass filtered list to CountryCard */}
+          <CountryCard countryData={list} /> 
         </Box>
       ) : (
-        <div>No countries found</div> // Display message if no countries
+        <div>No countries found</div> 
       )}
     </div>
   );
