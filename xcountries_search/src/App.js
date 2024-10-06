@@ -36,11 +36,11 @@ function App() {
 
   useEffect(() => {
     countyData(); 
-  }, [search]);
+  }, []);
 
   useEffect(()=>{
     proccessfilter(search,500)
-  },[])
+  },[search])
   return (
     <div className="App">
       <input
