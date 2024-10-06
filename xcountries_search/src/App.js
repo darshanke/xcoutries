@@ -22,7 +22,7 @@ function App() {
 
   const proccessfilter = (search, debouncetime) => {
     // console.log(search);
-    clear
+    // clear
     const filter = originallist.filter((item) =>
       item.name.common.toLowerCase().includes(search.toLowerCase())
     );
