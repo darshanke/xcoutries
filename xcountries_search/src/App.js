@@ -52,7 +52,7 @@ function App() {
             gap: "16px",
           }}
         >
-          <CountryCard countryData={list} />
+          <CountryCard className=".countryCard`" countryData={list} />
         </Box>
       ) : null}
     </div>

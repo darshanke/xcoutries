@@ -4,12 +4,14 @@ import React from "react";
 const CountryCard = ({ countryData }) => {
   if (!countryData || countryData.length === 0) {
     return  <Box
+    className=".countryCard`" 
     sx={{
       display: "flex",
       flexDirection: "row",
       justifyContent: "space-between",
       flexWrap: "wrap",
       gap: "16px",
+
     }}
   >
    
