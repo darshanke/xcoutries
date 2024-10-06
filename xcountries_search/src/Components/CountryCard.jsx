@@ -4,7 +4,7 @@ import React from "react";
 const CountryCard = ({ countryData }) => {
   if (!countryData || countryData.length === 0) {
     return  <Box
-    className=".countryCard`" 
+    className="countryCard" 
     sx={{
       display: "flex",
       flexDirection: "row",
@@ -50,6 +50,7 @@ const CountryCard = ({ countryData }) => {
 
   return (
     <Box
+    className="countryCard" 
       sx={{
         display: "flex",
         flexDirection: "row",

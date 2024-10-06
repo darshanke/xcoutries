@@ -22,6 +22,7 @@ function App() {
 
   const proccessfilter = (search, debouncetime) => {
     // console.log(search);
+    clear
     const filter = originallist.filter((item) =>
       item.name.common.toLowerCase().includes(search.toLowerCase())
     );
@@ -52,7 +53,7 @@ function App() {
             gap: "16px",
           }}
         >
-          <CountryCard className=".countryCard`" countryData={list} />
+          <CountryCard className="countryCard`" countryData={list} />
         </Box>
       ) : null}
     </div>
