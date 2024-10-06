@@ -117,7 +117,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    proccessfilter(search, 500);
+    proccessfilter(search, 200);
   }, [search]);
 
   return (

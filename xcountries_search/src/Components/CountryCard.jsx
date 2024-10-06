@@ -62,6 +62,7 @@ const CountryCard = ({ countryData }) => {
     >
       {countryData.map((item, index) => (
         <Card
+         className="countryCard"
           key={index}
           sx={{
             display: "flex",
