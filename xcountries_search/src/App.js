@@ -7,6 +7,7 @@ import { useEffect, useState,useRef } from "react";
 function App() {
   const [list, setList] = useState([]);
   const [originallist, setoriginallist] = useState([]);
+  const [search,setsearch] = useState("");
 
   const countyData = async () => {
     try {
@@ -22,7 +23,6 @@ function App() {
   const debounceRef = useRef(null); 
   const proccessfilter = (search, debouncetime) => {
    
-   
     if(debounceRef.current){
       clearTimeout(debounceRef.current)
     }
@@ -35,9 +35,12 @@ function App() {
   };
 
   useEffect(() => {
-    countyData();
-  }, []);
+    countyData(); 
+  }, [search]);
 
+  useEffect(()=>{
+    proccessfilter(search,500)
+  },[])
   return (
     <div className="App">
       <input
@@ -46,7 +49,7 @@ function App() {
         placeholder="Search for countries"
         style={{width: "40%", margin:"1rem"}}
         onChange={(e) => {
-          proccessfilter(e.target.value, 500);
+          setsearch(e.target.value)
         }}
       />
       {list.length > 0 ? (
