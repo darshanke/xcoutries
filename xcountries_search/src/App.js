@@ -55,6 +55,7 @@ function App() {
           sx={{
             display: "flex",
             flexDirection: "row",
+            justifyContent: "center",
             flexWrap: "wrap",
             gap: "16px",
           }}
