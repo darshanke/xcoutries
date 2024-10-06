@@ -50,19 +50,15 @@ import { Card, Typography, Box } from "@mui/material";
 import React from "react";
 
 const CountryCard = ({ countryData }) => {
+  if (!countryData || countryData.length === 0) {
+    return null; // Return null if no data to display
+  }
+
   return (
-    <Box
-      className="countryCard"
-      sx={{
-        display: "flex",
-        flexDirection: "row",
-        flexWrap: "wrap",
-        gap: "16px",
-      }}
-    >
+    <>
       {countryData.map((item, index) => (
-        <Card
-         className="countryCard"
+        <Card 
+        className="countryCard"
           key={index}
           sx={{
             display: "flex",
@@ -87,12 +83,16 @@ const CountryCard = ({ countryData }) => {
               style={{ width: "100%", height: "100%", objectFit: "cover" }}
             />
           </div>
-          <Typography variant="body2" align="center" sx={{ marginTop: "8px" }}>
+          <Typography
+            variant="body2"
+            align="center"
+            sx={{ marginTop: "8px", fontWeight: "bold" }}
+          >
             {item.name.common}
           </Typography>
         </Card>
       ))}
-    </Box>
+    </>
   );
 };
 
