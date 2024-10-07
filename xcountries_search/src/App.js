@@ -23,17 +23,24 @@ function App() {
   const debounceRef = useRef(null);
 
   const processFilter = (value, debounceTime) => {
-    // if (debounceRef.current) {
-    //   clearTimeout(debounceRef.current);
-    // }
-    // debounceRef.current = setTimeout(() => {
-    const filter = originalList
-      .filter((item) =>
-        item.name.common.toLowerCase().includes(value.toLowerCase())
-      )
-      .sort((a, b) => a.name.common.localeCompare(b.name.common));
-    setList(filter);
-    // }, debounceTime);
+     
+    if (debounceRef.current) {
+     
+      clearTimeout(debounceRef.current);
+    
+    }
+    debounceRef.current = setTimeout(() => {
+      if (value.trim() === "") {
+        setList(originalList);
+      } else {
+        const filter = originalList
+          .filter((item) =>
+            item.name.common.toLowerCase().includes(value.toLowerCase())
+          )
+          .sort((a, b) => a.name.common.localeCompare(b.name.common));
+        setList(filter);
+      }
+    }, debounceTime);
   };
 
   useEffect(() => {
@@ -42,7 +49,7 @@ function App() {
 
   useEffect(() => {
     processFilter(search, 300);
-  }, [search, list]);
+  }, [search,list ]);
 
   return (
     <div className="App">
@@ -67,12 +74,16 @@ function App() {
         </Box>
       ) : null} */}
       {
-        <div className="country-list">
+        <Box
+       className="country-list"
+        
+       >
+       
           {list.length > 0
             ? list.map((country, index) => (
                 <div className="countryCard" key={index}>
                   <img
-                    style={{ width: "100%", objectFit: "cover" }}
+                    style={{ width: "150px", objectFit: "cover" }}
                     src={country.flags.png}
                     alt={`${country.name.common} flag`}
                   />
@@ -80,7 +91,7 @@ function App() {
                 </div>
               ))
             : null}
-        </div>
+        </Box>
       }
     </div>
   );
