@@ -29,7 +29,7 @@ function App() {
     // debounceRef.current = setTimeout(() => {
       const filter = originalList.filter((item) =>
         item.name.common.toLowerCase().includes(value.toLowerCase())
-      );
+      ).sort((a, b) => a.name.common.localeCompare(b.name.common));
       setList(filter);
     // }, debounceTime);
   };
@@ -52,6 +52,7 @@ function App() {
       />
       {list.length > 0 ? ( 
         <Box
+         className="countryCard"
           sx={{
             display: "flex",
             flexDirection: "row",

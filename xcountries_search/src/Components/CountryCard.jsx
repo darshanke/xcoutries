@@ -2,6 +2,7 @@ import { Card, Typography, Box } from "@mui/material";
 import React from "react";
 
 const CountryCard = ({ countryData }) => {
+  console.log(countryData.length);
   if (!countryData || countryData.length === 0) {
     return null;
   }
