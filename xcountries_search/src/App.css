@@ -6,6 +6,19 @@
   height: 40vmin;
   pointer-events: none;
 }
+.country-list{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.countryCard{
+  height: 200px;
+  width: 200px;
+
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
