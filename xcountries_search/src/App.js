@@ -62,9 +62,7 @@ function App() {
         >
           <CountryCard className="countryCard" countryData={list} /> 
         </Box>
-      ) : (
-        <div>No countries found</div> 
-      )}
+      ) : null}
     </div>
   );
 }

@@ -1,8 +1,8 @@
 .countryCard{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 200ox;
-        padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    padding: 1rem;
 }
 

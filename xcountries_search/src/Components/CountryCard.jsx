@@ -3,38 +3,36 @@ import React from "react";
 
 const CountryCard = ({ countryData }) => {
   if (!countryData || countryData.length === 0) {
-    return null; 
+    return null;
   }
 
   return (
     <>
       {countryData.map((item, index) => (
-        <Card 
-        className="countryCard"
+        <Card
+          className="countryCard"
           key={index}
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            width: "200px",
-            padding: "1rem",
-          }}
+          // sx={{
+          //   display: "flex",
+          //   flexDirection: "column",
+          //   alignItems: "center",
+          //   width: "200px",
+          //   padding: "1rem",
+          // }}
         >
-          <div
+          <img
+            src={item.flags.png}
+            alt="flag"
             style={{
               height: "150px",
               width: "150px",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
+              objectFit: "cover",
             }}
-          >
-            <img
-              src={item.flags.png}
-              alt={item.name.common}
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
-            />
-          </div>
+          />
+
           <Typography
             variant="body2"
             align="center"
@@ -49,4 +47,3 @@ const CountryCard = ({ countryData }) => {
 };
 
 export default CountryCard;
-
