@@ -8,14 +8,14 @@ function App() {
   const [message,setmessaage] = useState(false);
   const [logged,setlogged] = useState(false)
 
-  debugger;
+
   const handleSubmit=(e)=>{
     e.preventDefault();
-    if(user!=='user' && password!=='password'){
+    if(user!=='user' || password!=='password'){
       setmessaage(true);
       return;
     }
-    debugger;
+
     setlogged(true);
     setmessaage(false);
 
@@ -28,12 +28,12 @@ function App() {
       {!logged?
       (<form onSubmit={(e)=>{handleSubmit(e)}}>
         <label name="Username" value="Username">
-          UserName :{" "}
+          Username :{" "}
         </label>
         <input
           type="text"
           id="UserName"
-          placeholder="userName"
+          placeholder="username"
           value={user}
           required
           onChange={(e) => {
