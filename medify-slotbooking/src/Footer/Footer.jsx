@@ -7,14 +7,14 @@ const Footer = () => {
   return (
     <Box
       sx={{
-        position: "absolute",
+        // position: "absolute",
         // width: "1440px",
         width: '100%',
         height: "424px",
-        top: "6215px",
+        // top: "6215px",
         // padding: "40px 135px 30px 162px",
         // gap: "0px",
-        opacity: "1px",
+        opacity: "1",
         backgroundColor: "#1B3C74",
       }}
     >

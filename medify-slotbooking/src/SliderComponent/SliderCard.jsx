@@ -7,7 +7,6 @@ const SliderCard = ({img,alt}) => {
       sx={{
         width: "398.3px",
         height: "199.15px",
-       
         borderRadius: "20px",
       }}
       
@@ -17,7 +16,7 @@ const SliderCard = ({img,alt}) => {
             width: '100%',
             height: '100%',
         }}
-        alt="" />
+        alt={alt} />
     </Card>
   );
 };
