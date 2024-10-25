@@ -16,13 +16,14 @@ const Footer = () => {
         // gap: "0px",
         opacity: "1",
         backgroundColor: "#1B3C74",
+        zIndex: 20,
       }}
     >
         <Box sx={{
-            margin: '40px 162px 40px 162px',
+            margin: '0px 162px 40px 162px',
             display: 'flex', 
             flexDirection: 'column',
-          
+            zIndex: 20,
 
         }}>
             <Box sx={{display: 'flex', justifyContent: 'space-between' , alignItems: 'center'}}>
@@ -39,7 +40,8 @@ const Footer = () => {
                 fontSize: '16px',
                 fontWeight: '400',
                 lineHeight: '28px',
-                color: '#FFFFFFFF'
+                color: '#FFFFFFFF',
+                zIndex: 20,
                 
             }}>Copyright ©2023 Surya Nursing Home.com. All Rights Reserved</Typography>
             

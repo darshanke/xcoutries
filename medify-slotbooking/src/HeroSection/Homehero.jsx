@@ -8,10 +8,15 @@ const commonStyles = {
   textAlign: "left",
 };
 
-const Homehero = () => {
+const Homehero = ({changeUi}) => {
   return (
-    <Box>
-      <Box sx={{ display: "grid", gridTemplateColumns: "50% 50%" }}>
+    <Box >
+      {!changeUi?<Box sx={{ display: "grid", gridTemplateColumns: "50% 50%",
+        
+          marginLeft: { xs: "20px", sm: "20px", md: "135px", lg: "135px" },
+          marginRight: { xs: "20px", sm: "20px", md: "135px", lg: "135px" },
+       
+       }}>
         <Box
           sx={{
             display: "flex",
@@ -89,7 +94,15 @@ const Homehero = () => {
             }}
           />
         </Box>
-      </Box>
+      </Box>:<Box
+      sx={{height: '110px', 
+        background: 'linear-gradient(91.75deg, #2AA7FF 1.4%, #0C8CE6 100.57%)',
+
+borderRadius: '0px 0px 16px 16px',
+
+
+      }}>
+        </Box>}
    
     </Box>
   );

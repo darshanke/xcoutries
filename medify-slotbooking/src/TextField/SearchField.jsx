@@ -2,9 +2,12 @@ import { TextField } from '@mui/material'
 import React from 'react'
 import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
-import SearchIcon from '@mui/icons-material/Search';
 
-const SearchField = ({helpertext}) => {
+import SearchIcon from '@mui/icons-material/Search';
+import location from '../HeroSection/images/Location marker.png'
+
+
+const SearchField = ({helpertext, changeUi}) => {
   return (
     <TextField
     
@@ -12,7 +15,7 @@ const SearchField = ({helpertext}) => {
       startAdornment: (
         <InputAdornment>
           <IconButton>
-            <SearchIcon />
+          {!changeUi ? <SearchIcon /> : <img src={location}/> }
           </IconButton>
         </InputAdornment>
       )

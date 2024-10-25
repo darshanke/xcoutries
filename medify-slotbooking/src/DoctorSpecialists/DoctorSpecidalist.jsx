@@ -60,6 +60,9 @@ const DoctorSpecidalist = () => {
             },
           }}
           loop={true}
+       autoplay={{
+        delay: 3000
+       }}        
           // loopAddBlankSlides={true}
         >
           {DoctorDetial.map((item, index) => (

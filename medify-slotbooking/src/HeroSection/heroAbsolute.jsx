@@ -10,6 +10,7 @@ import Capsule from "./images/Capsule.png";
 import hospital from "./images/Hospital.png";
 import Doctor from "./images/Doctor.png";
 
+
 const cardDetails = [
   { name: "Doctor", img: Doctor },
   { name: "Labs", img: Drugstore },
@@ -18,7 +19,7 @@ const cardDetails = [
   { name: "Ambulance", img: Ambulance },
 ];
 
-const HeroAbsolute = () => {
+const HeroAbsolute = ({changeUi}) => {
   const [selectedCardIndex, setSelectedCardIndex] = useState(null);
   const handleSelect=(index)=>{
     setSelectedCardIndex(index);
@@ -28,9 +29,9 @@ const HeroAbsolute = () => {
       sx={{
         border: "1px solid #F0F0F0",
         width: "1170px",
-        height: "429px",
+        height: changeUi?"111px":'429px',
         position: "absolute",
-        top: "530px",
+        top: changeUi?"179px":"530px",
         left: "auto",
         opacity: 1,
         zIndex: 2,
@@ -40,7 +41,7 @@ const HeroAbsolute = () => {
         display: "flex",
         flexDirection: "column",
         justifyContent: 'center' , 
-        // alignItems: 'center',
+        borderRadius: changeUi?'15px 15px 0px 0px': 'none',    
       }}
     >
       <Box
@@ -50,13 +51,14 @@ const HeroAbsolute = () => {
           justifyContent: "space-evenly",
           flexWrap: "wrap",
           margin: "2rem",
+          marginTop:changeUi && "5rem",
           marginBottom: "6rem",
           position: "relative",
-          left: "110px",
+          left: changeUi?"none":"110px",
         }}
       >
-        <SearchField helpertext="state" />
-        <SearchField helpertext="city" />
+        <SearchField helpertext="state" changeUi={changeUi} />
+        <SearchField helpertext="city" changeUi={changeUi}/>
         <Button
           variant="contained"
           sx={{
@@ -66,14 +68,14 @@ const HeroAbsolute = () => {
           }}
           startIcon={
             <IconButton sx={{ padding: 0, color: "#FFFFFF" }}>
-              <SearchIcon />
+              <SearchIcon /> 
             </IconButton>
           }
         >
           Search
         </Button>
       </Box>
-      <Typography
+      {!changeUi && <Typography
         sx={{
           fontFamily: "Poppins",
           fontSize: "20px",
@@ -85,8 +87,8 @@ const HeroAbsolute = () => {
         }}
       >
         You may be looking for
-      </Typography>
-      <Box
+      </Typography>}
+      {!changeUi && <Box
         sx={{
           display: "flex",
           flexWrap: "wrap",
@@ -105,7 +107,7 @@ const HeroAbsolute = () => {
            width={60}
            />
         ))}
-      </Box>
+      </Box>}
     </Box>
   );
 };

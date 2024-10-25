@@ -4,7 +4,7 @@ import image from "./image.png";
 import smile from "./Frame (1).png";
 import group from "./Group.png";
 
-const FrequentlyAskedQuestion = () => {
+const FrequentlyAskedQuestion = ({changeUi={changeUi}}) => {
   return (
     <Box
       sx={{
@@ -13,7 +13,7 @@ const FrequentlyAskedQuestion = () => {
     >
       <Box
         sx={{
-          marginTop: "1rem",
+          marginTop: changeUi?"4rem":"1rem",
           textAlign: "center",
           fontWeight: 600,
         }}

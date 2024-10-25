@@ -5,9 +5,8 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import PropTypes from "prop-types";
 
-const Navbar = () => {
-  const [value, setValue] = useState(0);
-  const [changeUi, setUi] = useState(false);
+const Navbar = ({changeUi,value,setValue,setUi}) => {
+
 
 
   const navBarList = ['Find Doctors', 'Hospitals', 'Medicines', 'Surgeries','Software for Provider', 'Facilities', ]
@@ -53,11 +52,16 @@ const Navbar = () => {
         flexDirection: "row",
         justifyContent: 'space-between', 
         alignItems: "center",
+        background: changeUi ? "#FFFFFF" : "none",
+        paddingLeft: { xs: "20px", sm: "20px", md: "135px", lg: "135px"},
+        paddingRight: { xs: "20px", sm: "20px", md: "135px", lg: "135px" },
+
       }}
     >
       <Box sx={{ 
         display: "flex", 
         alignItems: "center",
+       
         }}>
      
      
@@ -81,16 +85,18 @@ const Navbar = () => {
       sx={{
     
         display: 'flex',
+        alignItems: 'center',
         justifyContent: 'space-around',
-        flexWrap: 'wrap',
+        flexWrap: 'nowrap',
          position: 'relative',
          maxWidth: '912px',
-     
+      height: '96px'
   
       }}
         >
           {
-            !changeUi &&  <Box
+            !changeUi &&  
+            <Box
             value={value}
             onChange={handleChange}
             scrollButtons="false" 
@@ -113,7 +119,12 @@ const Navbar = () => {
                    padding: '12px 16px',  
                   textTransform: 'none',
                  
-                }} onClick={()=>setUi(true) } >{item}</Typography>
+                }} onClick={()=>{
+
+                  setUi(true) 
+                  setValue(index)}
+
+                } >{item}</Typography>
               ) 
                 
             ))
@@ -123,29 +134,47 @@ const Navbar = () => {
           </Box>
           }
 
-        {/* {!changeUi &&<Tabs
+        {changeUi &&<Tabs
           value={value}
           onChange={handleChange}
           scrollButtons="false" 
+          TabIndicatorProps={{
+            style: {
+              bottom: '-1px',
+              backgroundColor: "#2AA7FF", 
+              height: "5px", 
+            },
+          }}
           sx={{
             fontFamily: 'Poppins',
             fontSize: '14px',
             fontWeight: 400,
             textAlign: 'left',
+            height: '96px'
+          
          
           }}
 
         >{
           navBarList.map((item,index)=>(
           (
-              <Tab key={index} label={item} {...a11yProps(index)}  sx={{    lineHeight: '21px',    textTransform: 'none'}}/>
+              <Tab key={index} label={item} {...a11yProps(index)}  sx={{   
+                 lineHeight: '21px', 
+                 textAlign: 'center', 
+                 position: 'relative',
+                 top: '27px',
+                 color: '#102851',
+                 '&.Mui-selected':{
+                    color: '#2AA7FF'
+                 },
+                  textTransform: 'none'}}/>
             ) 
               
           ))
         }
           
           
-        </Tabs>} */}
+        </Tabs>}
         <Button variant="contained" 
             sx={{
               width: '130px',
@@ -158,15 +187,6 @@ const Navbar = () => {
 
             >My Bookings</Button>
       </Box>
-      {/* <CustomTabPanel value={value} index={0}>
-        Item One
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={1}>
-        Item Two
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={2}>
-        Item Three
-      </CustomTabPanel> */}
     </Box>
   );
 };

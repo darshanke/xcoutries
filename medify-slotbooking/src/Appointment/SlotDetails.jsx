@@ -5,12 +5,12 @@ const SlotDetails = () => {
   return (
    <Box sx={{
    
-        width: "745px",      
+        // width: "745px",      
         height: "278px",      
         gap: "28px",           
   
    }}>
-    
+    <div>hello</div>
 
    </Box>
   )
