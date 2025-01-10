@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+      "target": "ES6",                
+      "module": "ES6",   
+      "jsx": "react-jsx",                    
+      "strict": true,                         // Enable all strict type-checking options
+      "esModuleInterop": true,                // Enables ES module interoperability
+      "forceConsistentCasingInFileNames": true, // Enforce consistent casing in file names
+      "skipLibCheck": true,                   // Skip type checking of declaration files
+      "baseUrl": "src",                       // Base directory for imports
+      "isolatedModules": true, 
+                
+    },
+    "include": ["src"],              
+    "exclude": ["node_modules"]       
+  }
+  
